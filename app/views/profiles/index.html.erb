@@ -1,0 +1,11 @@
+<div class="panel-body">
+  <%= form_tag profiles_path, :remote => true, :method => :get, :class => "form-search" do %>
+    <div class="form-inline">
+      <%= text_field_tag :search, params[:search], class: "form-control" %>
+      <%= submit_tag "Search", :name => nil, class: "form-control" %>
+    </div>    
+  <% end %>
+</div>
+
+<div id="profiles"><%= render 'profiles' %></div>
+

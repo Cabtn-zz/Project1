@@ -1,0 +1,52 @@
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+
+<%= f.fields_for :patient_profile do |doc| %>
+  <div class="form-group col-sm-6">
+    <%= doc.label :gender  %><br>
+    <%= doc.select(:gender, options_for_select([['Male', 'M'],['Female', 'F']], @profile.patient_profile.gender), {:include_blank => false}, {:class => "form-control"}) %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :date_of_birth %><br>
+    <%= doc.date_select :date_of_birth, {:order => [:month, :day, :year],:prompt => true, :start_year => 1960, :end_year => Time.now.year}, :html=>{:class => "form-control"} %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :address %><br>
+    <%= doc.text_field :location, :class => "form-control" %>
+  </div>
+
+  <%= doc.fields_for :Allergies do |a| %>
+    <div class="form-group col-sm-6">
+      <%= a.label :name, 'Allergies' %><br>
+      <%= a.text_field :name, :class => "form-control" %>
+      <%= a.label :note, 'Allergies Note' %><br>
+      <%= a.text_area :note, class: "form-control" %>
+    </div>
+  <% end %>
+
+  <%= doc.fields_for :medication do |m| %>
+    <div class="form-group col-sm-6">
+      <%= m.label :name, 'Medication' %><br>
+      <%= m.text_field :name, :class => "form-control" %>
+      <%= m.label :note, 'Medication Note' %><br>
+      <%= m.text_area :note, :class => "form-control" %>
+    </div>
+  <% end %>
+
+  <%= doc.fields_for :previous_dignosed_condition do |dc| %>
+    <div class="form-group col-sm-6">
+      <%= dc.label :name, 'Diagnosed Condition' %><br>
+      <%= dc.text_field :name, :class => "form-control" %>
+      <%= dc.label :note, 'Diagnosed Condition Note' %><br>
+      <%= dc.text_area :note, :class => "form-control" %>
+    </div>
+  <% end %>
+
+<% end %>
+
+<script>
+  $(function(){
+	$("#profile_patient_profile_attributes_location	").geocomplete();
+  });   
+</script>

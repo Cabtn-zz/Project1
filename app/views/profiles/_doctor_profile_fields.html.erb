@@ -1,0 +1,27 @@
+<%= f.fields_for :doctor_profile do |doc| %>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :speciality  %><br>
+    <%= doc.collection_select :speciality, DoctorProfile::SPECIALITY, :to_s, :to_s, {:include_blank => false}, {:class  => 'form-control'} %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :gratuate_school %><br>
+    <%= doc.text_field :gratuate_school, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :degree %><br>
+    <%= doc.collection_select :degree, DoctorProfile::DEGREES, :to_s, :to_s, {:include_blank => false}, {:class  => 'form-control'}  %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :professional_license %><br>
+    <%= doc.text_field :professional_license, class: "form-control" %>
+  </div>
+
+  <div class="form-group col-sm-6">
+    <%= doc.label :year_of_completion %><br>
+    <%= doc.collection_select :year_of_completion, (1914..2014).to_a, :to_s, :to_s, {:include_blank => false}, {:class  => 'form-control'}  %>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
+$body-bg:  #ecf0f1;
+$font-family-sans-serif: 'Lato', 'Helvetic Neue', 'Helvetic', 'Arial';
+$navbar-inverse-bg: #3498db;
+$navbar-inverse-link-color: white;
+$jumbotron-bg: #bdc3c7;
+
+@import 'bootstrap';
+
+.center 
+    {
+    text-align: center; 
+    }
+
+.right
+{
+    float: right;
+}
+
+.left 
+{
+    float: left;
+    margin-top: 5px
+  
+}
+
+.checkbox input[type="checkbox"]
+    {
+        margin-left: 0;
+    }
+table td
+{
+    width: 5%;
+}
+
+.round-image-50 
+{
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}
+
+

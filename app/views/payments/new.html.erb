@@ -1,0 +1,67 @@
+<%= form_for @payment, url: transaction_fees_payments_path do |f| %>
+  <%= f.hidden_field :stripe_card_token %>
+
+  <div class="field">
+    <%= label_tag :card_number, "Credit Card Number" %>
+    <%= text_field_tag :card_number, nil, name: nil %>
+  </div>
+  <div class="field">
+    <%= label_tag :card_code, "Security Code on Card (CVV)" %>
+    <%= text_field_tag :card_code, nil, name: nil %>
+  </div>
+
+  <%= hidden_field_tag :payment_id, params[:payment_id] %>
+
+  <div class="field">
+    <%= label_tag :card_month, "Card Expiration" %>
+    <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+    <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+  </div>
+  <div id="stripe_error">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
+  <%= f.submit "Pay Fees" %>
+<% end %>
+
+<script type="text/javascript">
+  jQuery(function() {
+    var payment;
+
+    payment = {
+      setupForm: function() {
+        return $('#new_payment').submit(function() {
+          $('input[type=submit]').attr('disabled', true);
+          if ($('#card_number').length) {
+            payment.processCard();
+            return false;
+          } else {
+            return true;
+          }
+        });
+      },
+      processCard: function() {
+        var card;
+        card = {
+          number: $('#card_number').val(),
+          cvc: $('#card_code').val(),
+          expMonth: $('#card_month').val(),
+          expYear: $('#card_year').val()
+        };
+        return Stripe.createToken(card, payment.handleStripeResponse);
+      },
+      handleStripeResponse: function(status, response) {
+        if (status === 200) {
+          $('#payment_stripe_card_token').val(response.id);
+          return $('#new_payment')[0].submit();
+        } else {
+          $('#stripe_error').text(response.error.message);
+          return $('input[type=submit]').attr('disabled', false);
+        }
+      }
+    };
+
+    Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'));
+    return payment.setupForm();
+  });
+
+</script>

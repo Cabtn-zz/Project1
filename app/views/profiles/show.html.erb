@@ -1,0 +1,74 @@
+<% if @profile.doctor_profile%>
+  <h3>Doctor Profile's Info</h3>
+<% else %> 
+  <strong>Patient Profile's Info</strong>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+</br>
+
+<td class="round-image-20"><%= image_tag((current_user || @profile.user).avatar.url(:medium)) %></td>
+<br>
+<br>
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+<p>
+  <strong>State:</strong>
+  <%= @profile.state %>
+</p>
+<% if current_user || ( @profile || current_user.is_doctor? ) %>
+  <% if @profile.doctor_profile%>
+    <div id="doctor">
+      <p>
+        <strong>Speciality:</strong>
+        <%= @profile.doctor_profile_speciality %>
+      </p>
+      <p>
+        <strong>Gratuate School:</strong>
+        <%= @profile.doctor_profile_gratuate_school %>
+      </p>
+      <p>
+        <strong>Degree:</strong>
+        <%= @profile.doctor_profile_degree %>
+      </p>
+
+      <p>
+        <strong>Graduated At:</strong>
+        <%= @profile.doctor_profile_year_of_completion %>
+      </p>
+
+      <p>
+        <strong>Professional License:</strong>
+        <%= @profile.doctor_profile_professional_license %>
+      </p>
+    </div>
+  <% end %>
+<% end %>
+<% if current_user || ( @profile || current_user.is_patient? ) %>
+	<% if @profile.patient_profile%>
+    <p>
+      <strong>Gender:</strong>
+      <%= @profile.patient_profile.gender %>
+    </p>
+    
+    <p>
+      <strong>Date of Birth:</strong>
+      <%= date_format(@profile.try(:patient_profile).try(:date_of_birth)) %>
+    </p>
+
+    <p>
+      <strong>Location:</strong>
+      <%= @profile.patient_profile.location %>
+    </p>
+  <% end %>
+<% end %>
+<% if @profile.user == current_user %>
+  <%= link_to 'Edit', edit_profiles_path %> |
+<% end %>
+<%= link_to 'Back', profiles_path %>
