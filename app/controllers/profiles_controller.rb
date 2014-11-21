@@ -103,9 +103,9 @@ class ProfilesController < ApplicationController
 
   def complete_profile_info
     if current_user
-      redirect_to edit_profiles_path, notice: "Please complete your profile first!." unless current_user.profile_completed? || current_user.is_admin?
+      redirect_to edit_profiles_path, notice: "Please complete your profile first!" unless current_user.profile_completed? || current_user.is_admin?
     else
-      redirect_to user_session_path, notice: "Please login before accessing doctors list!"
+      redirect_to user_session_path, notice: "Please login before requesting a doctor."
     end
   end
 end
