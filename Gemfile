@@ -18,12 +18,13 @@ gem 'aws-sdk', '~> 1.20.0'
 gem 'masonry-rails', '~> 0.2.0'
 gem "nested_form"
 gem 'pg'
-gem "sqlite3"
+
 
 group :development, :test do
 	gem 'railroady'
 	gem 'byebug'
   gem 'pry-rails'
+  gem "sqlite3"
 end
 
 group :production do
