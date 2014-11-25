@@ -26,10 +26,10 @@ class AdminController < ApplicationController
   def authenticate_admin
 	if current_user
 	  unless current_user.is_admin?
-		redirect_to root_path, :notice => 'You are not authorize to access this page.'
+		redirect_to root_path, :notice => 'You are not authorized to access this page.'
 	  end
 	else
-	  redirect_to root_path, :notice => 'You are not authorize to access this page.'
+	  redirect_to root_path, :notice => 'You are not authorized to access this page.'
 	end
   end
 end

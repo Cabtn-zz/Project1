@@ -30,9 +30,9 @@ class PaymentsController < ApplicationController
 	  access_cred = StripeAccessCred.where(id: params['state']).first
 	  access_cred.access_token = params['code']
 	  if access_cred.save
-			flash[:notice] = "You have completed your account setting!"
+			flash[:notice] = "You have completed your account settings!"
 	  else
-			flash[:notice] = "You have completed your account setting!"
+			flash[:notice] = "You have completed your account settings!"
 	  end
 	  redirect_to profile_path(current_user.profile)
   end
