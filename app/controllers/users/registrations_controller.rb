@@ -23,6 +23,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render 'new_patient'
   end
 
+  def destroy_user
+    bybug
+  end
+
+
   # This action will register doctor and patient both
   def create
     build_resource(sign_up_params)

@@ -12,12 +12,12 @@ Rails.application.routes.draw do
     end
   end
    
-  devise_for :users, :skip => [:registrations] , :controllers => {:registartions => "users/registartions"}
+  devise_for :users, :skip => [:registrations] , :controllers => {:registrations => "users/registrations"}
 
   devise_scope :user do
     get  'users/sign_up' => 'users/registrations#new'
     get  'users/:id/edit' => 'users/registrations#edit'
-    
+
     # routes for doctor registration/ edit doctors
     get  'doctors/sign_up' => 'users/registrations#new_doctor', :as => 'new_doctor_registration'
     post 'doctors' => 'users/registrations#create', :as => 'doctor_registration'

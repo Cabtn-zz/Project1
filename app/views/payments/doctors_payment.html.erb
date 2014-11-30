@@ -1,4 +1,4 @@
-<h1> Made permissions for new payments: </h1>
+<h1> Requested Visits </h1>
 <% @pendind_permissions.each do |payment|%>
   <div>
     <%= link_to "Accept Request",       "https://connect.stripe.com/oauth/authorize?response_type=code&client_id=#{@stripe_client_id}&scope=read_write&state=#{payment.id}" %> to <%= payment.try(:patient).try(:profile).try(:name) %>
