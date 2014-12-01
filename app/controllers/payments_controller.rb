@@ -23,7 +23,7 @@ class PaymentsController < ApplicationController
   def initiate_payment
     profile = Profile.find(params[:doctor_id])
     StripeAccessCred.create(:doctor_profile_id => profile.doctor_profile.id, :patient_id => current_user.id )
-    redirect_to payments_path, :notice => 'Have send request!'
+    redirect_to payments_path, :notice => 'Your request has been sent!'
   end
 
   def access_setup
