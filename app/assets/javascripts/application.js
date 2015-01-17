@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require jquery_nested_form
 //= require payments
+//= require masonry/jquery.masonry
 //= require_tree .
 
 $(function () {

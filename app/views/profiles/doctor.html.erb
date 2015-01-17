@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 </br>
 <% unless current_user ==  @profile.user%>
-  <%= link_to 'Request to doctor', initiate_payment_payments_path(doctor_id: @profile), method: :put %>
+  <%= link_to 'Request doctor', initiate_payment_payments_path(doctor_id: @profile), method: :put %>
 <% end %>
 <td class="round-image-20"><%= image_tag((current_user || @profile.user).avatar.url(:medium)) %></td>
 <br>
@@ -26,7 +26,7 @@
   </p>
   <p>
     <strong>Graduate School:</strong>
-    <%= @profile.doctor_profile_gratuate_school %>
+    <%= @profile.doctor_profile_graduate_school %>
   </p>
   <p>
     <strong>Degree:</strong>

@@ -92,7 +92,7 @@ class ProfilesController < ApplicationController
   def profile_params
     if current_user.is_doctor?
       params.require(:profile).permit(:name, :city, :state, :image, doctor_profile_attributes: 
-                          [:profile_id, :speciality, :year_of_completion, :gratuate_school, :degree, :professional_license])
+                          [:profile_id, :speciality, :year_of_completion, :graduate_school, :degree, :professional_license])
     else
       params.require(:profile).permit(:name, :city, :state, :image, 
                                       patient_profile_attributes: [:profile_id, :gender,:date_of_birth, :location, 

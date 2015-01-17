@@ -94,7 +94,7 @@ GEM
     netrc (0.8.0)
     nokogiri (1.5.11)
     orm_adapter (0.5.0)
-    paperclip (3.5.4)
+    paperclip (4.2.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
@@ -197,7 +197,7 @@ DEPENDENCIES
   jquery-turbolinks
   masonry-rails (~> 0.2.0)
   nested_form
-  paperclip (~> 3.0)
+  paperclip (~> 4.1)
   pg
   pg_search
   pry-rails

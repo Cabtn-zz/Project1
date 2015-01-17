@@ -27,7 +27,7 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :doctor_profile
   accepts_nested_attributes_for :patient_profile
 
-  delegate :speciality, :gratuate_school, :degree, :professional_license,
+  delegate :speciality, :graduate_school, :degree, :professional_license,
            :year_of_completion, to: :doctor_profile, :prefix => true
   
   delegate :profile_type, to: :user, :prefix => true

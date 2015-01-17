@@ -3,7 +3,7 @@ class CreateDoctorProfiles < ActiveRecord::Migration
     create_table :doctor_profiles do |t|
       t.integer :profile_id
       t.string :speciality
-      t.string :gratuate_school
+      t.string :graduate_school
       t.string :degree
       t.string :professional_license
       t.datetime :year_of_completion
