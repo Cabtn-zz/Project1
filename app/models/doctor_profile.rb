@@ -40,7 +40,8 @@ class DoctorProfile < ActiveRecord::Base
                 'Pediatrics - Pulmonology', 'Pediatrics - Sports Medicine', 'Pediatrics - Urology', 'Pharmacology', 
                 'Phlebology', 'Physical & Rehabilitation Medicine', 'Podiatry', 'Preventive Medicine', 'Psychiatry', 
                 'Psychiatry - Geriatric', 'Public Health', 'Radiation Oncology', 'Radiology', 'Radiology - Interventional', 
-                'Sports Medicine', 'Toxicology', 'Transfusion Medicine', 'Travel Medicine', 'Undersea and Hyperbaric Medicine', 
+                'Sports Medicine', 'Surgery', 'Surgery - Cardiac', 'Surgery - Cosmetic', 'Surgery - Orthopedic',
+                'Toxicology', 'Transfusion Medicine', 'Travel Medicine', 'Undersea and Hyperbaric Medicine', 
                 'Urgent Care', 'Urology', 'Urology - Oncology', 'Wilderness Medicine', 'Wound care']
   
 end
